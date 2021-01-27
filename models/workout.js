@@ -7,6 +7,7 @@ const workoutSchema = new Schema({
         default: Date.now()
     },
     exercise: {
+        type: Schema.Types.ObjectId,
         type: String,
         name: String,
         weight: Number,

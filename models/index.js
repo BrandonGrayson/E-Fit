@@ -1,7 +1,7 @@
-let workout = require("./workout");
+var Workout = require("./workout");
 
 
 module.exports = {
     
-    Workout: workout
+    Workout
 }

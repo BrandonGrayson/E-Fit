@@ -84,10 +84,10 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date(new Date().setDate(new Date().getDate() - 4)),
+   day: new Date(new Date().setDate(new Date().getDate() - 4)),
     exercises: [
       {
-        type: "resistance",
+         type: "resistance",
         name: "Quad Press",
         duration: 30,
         weight: 300,

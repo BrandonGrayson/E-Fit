@@ -20,15 +20,27 @@ module.exports = function (app) {
         // console.log("This is the req body from :id--->", req.body)
         // save the workout to variable called work
         console.log("This is the PARAMS ID", req.params.id)
-        
+        // find exercise based on id
+        Workout.findOne({_id: req.params.id}, (err, workout) =>{
+            // push workout onto exercise
+            workout.exercises.push(req.body)
+
+            // add new exercise to db
+            Workout.updateOne({_id: req.params.id}, workout, function (err, data) {
+                if(err) throw err
+                res.json(data)
+            })
+        })
     });
 
     app.post("/api/workouts", function (req, res) {
         console.log("This is from WORKOUTS--->", req.body)
         
-        
+        // crate a new workout
         const newWorkout = new Workout(req.body)
+        // save the workout to database
         newWorkout.save(function(err){
+            // err handling
             if(err){ console.log(err)}
             res.json(newWorkout)
         })

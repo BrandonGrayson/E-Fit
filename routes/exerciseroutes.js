@@ -22,11 +22,19 @@ module.exports = function (app) {
 
     app.post("/api/workouts", function (req, res) {
         console.log("This is from WORKOUTS--->", req.body)
-        const newWorkout = new Workout(req.body)
-        console.log("New Workout-->", newWorkout)
-        res.json(newWorkout)
         
-        // save this to a var
+        
+        const newWorkout = new Workout(req.body)
+        newWorkout.save(function(err){
+            if(err){ console.log(err)}
+            res.json(newWorkout)
+        })
+
+        //or
+        // Workout.create(req.body, function (err, data) {
+        //     if (err) console.log(err);
+        //     res.json(data)
+        //   });
     });
     // aggregate/ limit
     app.get("/api/workouts/range", function (req, res) {

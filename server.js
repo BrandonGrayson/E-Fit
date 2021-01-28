@@ -1,4 +1,4 @@
-// set up server connection
+               // set up server connection
 
 // require modules
 const express = require("express");
@@ -19,11 +19,12 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // connect to mongoose db
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { 
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/workout', { 
 useNewUrlParser: true,    
 useUnifiedTopology: true,
 useCreateIndex: true,
-useFindAndModify: false });
+useFindAndModify: false 
+});
 
 // port
 const PORT = process.env.PORT || 3000;

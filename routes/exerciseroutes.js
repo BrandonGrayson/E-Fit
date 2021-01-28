@@ -21,8 +21,9 @@ module.exports = function (app) {
         // save the workout to variable called work
         console.log("This is the PARAMS ID", req.params.id)
         // find exercise based on id
-        Workout.findOne({_id: req.params.id}, (err, workout) =>{
+        Workout.findOne({_id: req.params.id}, function (err, workout) {
             // push workout onto exercise
+            console.log("This is WORKOUT OBJECT--->",workout)
             workout.exercises.push(req.body)
 
             // add new exercise to db

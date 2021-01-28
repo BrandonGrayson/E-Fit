@@ -8,6 +8,12 @@ module.exports = function (app) {
 
     app.get("/api/workouts", function (req, res) {
         // loa
+        Workout.find({}).then(data => {
+           res.json(data)
+        })
+        .catch(err => {
+            res.json(err)
+        })
     })
 
     app.put("/api/workouts/:id", function (req, res) {
@@ -41,7 +47,7 @@ module.exports = function (app) {
         // console.log("THIS IS THE RESPONSE--->", res)
         // console.log("THIS IS THE REQUEST--->", req.body)
         // load all the workouts already inside the database
-        db.Workouts.find({
+        db.Workout.find({         
             
         })
     });
